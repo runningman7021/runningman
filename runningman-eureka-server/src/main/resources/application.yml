@@ -1,0 +1,27 @@
+#微服务实例名
+spring:
+  application:
+    name: runningman-eureka-server
+    #设置生效的配置文件名
+  profiles:
+    active: server2
+#eureka-server高可用集群
+eureka:
+  client:
+    service-url:
+    #设置与eureka-server交互的地址
+      defaultZone: http://localhost:8762/eureka/,http://localhost:8761/eureka/
+
+---
+#---连字符将文件分隔
+spring:
+  profiles: server1
+server:
+  port: 8761
+
+
+---
+spring:
+  profiles: server2
+server:
+  port: 8762
